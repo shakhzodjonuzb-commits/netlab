@@ -1,0 +1,21 @@
+{
+  "name": "netlab-education",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interaktiv internet va tarmoq tushunchalari uchun ta'lim platformasi",
+  "workspaces": ["client", "server"],
+  "scripts": {
+    "dev": "concurrently -k -n API,WEB -c cyan,green \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm run dev --workspace server",
+    "dev:client": "npm run dev --workspace client",
+    "build": "npm run build --workspace client && npm run build --workspace server",
+    "start": "npm run start --workspace server",
+    "typecheck": "npm run typecheck --workspace client && npm run typecheck --workspace server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}
